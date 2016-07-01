@@ -14,19 +14,12 @@ bot.on('ready', function() {
 
 //Bots
 var pingpong = require('./pingpong');
+var help = require('./help');
 bot.on('message', function(user, userID, channelID, message, event) {
-
-    if (message === "ping") {
-        pingpong.pingpong(user,userID,channelID,message,event)
+    if (message === "=ping") {
+        pingpong.pingpong(user,userID,channelID,message,event);
     }
     if (message === "=help") {
-        bot.sendMessage({
-            to: channelID,
-            message: "<@" + userID + "> Check your messages!"
-        });
-        bot.sendMessage({
-            to: userID,
-            message: "<@" + userID + "> Options \n =badjoke"
-        });
+        help.help(user,userID,channelID,message,event);
     }
 });
