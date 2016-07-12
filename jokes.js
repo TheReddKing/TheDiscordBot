@@ -12,7 +12,11 @@ db.serialize(function() {
 });
 
 module.exports = {
-    badjoke: function (user,userID,channelID,message,event) {
+    badjoke: function (user,userID,channelID,message,event,message) {
+        if(message.includes("--tts")) {
+            badjokeTTS(user,userID,channelID,message,event);
+            return;
+        }
         bot.sendMessage({
             to: channelID,
             message: "<@" + userID + ">" + randomJoke()
