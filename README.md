@@ -25,8 +25,11 @@ token.js
 
 
 Then I ran (the say was for the speech synth)
+
     npm install discord.io
     npm install say
 
 To run the program
+
     node index.js
+
